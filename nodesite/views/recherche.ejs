@@ -1,0 +1,21 @@
+
+<%- include('header') -%>
+<%- include('nav') -%>
+
+
+<div class="text-center pt-1 mt-5" id="recherche">
+    <div class="container w-25 border py-5 mt-1">
+        <h3>Bienvenue sur la page de recherche, rechercher l'id de l'utilisateur</h3>
+        <h5><%= locals.user ? user : "User" %></h5>
+        <form action="/route/recherche" method="POST" class="pt-3">
+            <div class="form-group">
+                <input  class="form-control" name="recherche" placeholder="rechercher un id d'utilisateur">
+            </div>
+            <button type="submit" id="regbtn" class="btn btn-success rounded-pill">Rechercher</button>
+        </form>
+        
+        <h5><%= locals.result ? result : "Email :" %></h5>
+    </div>
+</div>
+
+<%- include('footer') -%>

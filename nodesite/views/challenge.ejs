@@ -1,0 +1,18 @@
+<%- include('header') -%>
+<%- include('nav') -%>
+<div class="card pt-5 pt-5 mt-5 mb-5 ml-5 mr-5">
+    <h1>Challenge page !</h1>
+    <h2>You must complete this challenge to win a price</h2>
+    <hr>
+    <ul>
+        <li>The rule is simple, you have to click the button and get a score higher than me</li>
+        <li>Score to beat: <strong>99999</strong></li>
+    </ul>
+
+    <p><%= locals.getmessage ? getmessage : "Message :" %></p>
+    <form action="challenge" method="post" onsubmit="document.getElementsByName('score')[0].value = Math.floor(Math.random() * 100001)">
+        <input type="hidden" name="score" value="-1">
+        <input type="submit" name="generate" value="Give a try!">
+    </form>
+</div>
+    <%- include('footer') -%>

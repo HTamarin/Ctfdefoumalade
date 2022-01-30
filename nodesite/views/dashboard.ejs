@@ -1,0 +1,23 @@
+<%- include('header') -%>
+<%- include('nav') -%>
+
+<div class="text-center pt-1 mt-5" id="login">
+    <div class="container w-25 border py-5 mt-1">
+        <h3>Bienvenue sur la page IEFP</h3>
+        <h5><%= locals.user ? user : "User" %></h5>
+        <% if(locals.key =="undefined" || locals.key ==null ){%>
+        <h1>FELICITATION VOUS AVEZ TROUV LE PREMIER FLAG</h1>
+        <h1>key = J8SuisL8Pr4m1erFlag</h1>
+        <%}else{%>
+            <h1><%=locals.key%></h1>
+            
+            <%}%>
+    </div>
+</div>
+<!--Il n'y a rien sur CETTE PAGE-->
+  <script>
+    $(document).ready(function() {
+        $('#table').DataTable();
+    } );
+    </script>
+<%- include('footer') -%>

@@ -1,0 +1,30 @@
+{
+  "name": "login_system",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "body-parser": "^1.19.0",
+    "crypto": "^1.0.1",
+    "datatables": "^1.10.18",
+    "datatables.net": "^1.11.3",
+    "datatables.net-dt": "^1.11.3",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "jquerry": "0.0.1-security",
+    "jquery": "^3.6.0",
+    "mysql": "^2.18.1",
+    "mysql-server": "^1.0.5",
+    "sha1": "^1.1.1",
+    "uuid": "^8.3.1"
+  }
+}

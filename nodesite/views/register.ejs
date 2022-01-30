@@ -1,0 +1,84 @@
+
+<%- include('header') -%>
+
+
+<div class="text-center center-div" id="register">
+    
+    <div class="container w-25 border py-5">
+        <a class="mb-3 btn btn-secondary stretched-link" href="/">Retour <span class="sr-only">(current)</span></a>
+        <div class="title pb-5">
+            <h2 class="font-weight-bold">Système d'enregistrement</h2>
+            <span>Enregistrer un nouvel utilisateur</span>
+            <% if(locals.logout){ %>
+                <div class="alter alert-success text-center">
+                    <%= logout %>
+                </div>
+            <% } %>
+            <% if(locals.error){ %>
+                <div class="alter alert-warning text-center">
+                    <%= error %>
+                </div>
+            <% } %>
+        </div>
+        
+        <input required disabled id='page_password' class="form-control" placeholder="mot de passe admin" name="pagepassword">
+        <small class="form-text text-muted text-left">Veuillez renseigner votre mot de passe administrateur pour debloquer l'inscription</small>
+        <form action="/route/register" id="myForm" method="POST" class="pt-3">
+            <div class="form-group">
+                <label for="email">Adresse Email</label>
+                <input type="email" required class="form-control" placeholder="email" name="email">
+                <small class="form-text text-muted text-left"></small>
+            </div>
+            <div class="form-group">
+                <label for="password">Mot de passe :</label>
+                <input type="password" id='password'  class="form-control" name="password" placeholder="mot de passe">
+            </div>
+            <div class="form-group">
+                <input type="password" id="confirm_password"  class="form-control" name="password2" placeholder="repeter mot de passe">
+            </div>
+            <button type="submit" id="regbtn" class="btn btn-success rounded-pill">Enregistrer</button>
+
+        </form>
+    </div>
+</div>
+<!-- Pour ne pas oublier, le mot de passe du formulaire est "lafinance " note le bien-->
+<script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
+
+ <style>
+    #form label{float:left; width:140px;}
+    #error_msg{color:red; font-weight:bold;}
+ </style>
+
+ <script>
+    $( document ).ready(verifpagepass);
+    $('#page_password').keyup(verifpagepass);
+     
+
+    $('#confirm_password').keyup(verifpass);
+    $('#password').keyup(verifpass);
+
+    function verifpagepass(){
+        var pagepass    =   $('#page_password').val(); 
+        if(pagepass != "lafinance"){
+            $("#myForm :input").prop('readonly', true);
+        }else{
+            $("#myForm :input").prop('readonly', false);
+        }
+    }
+
+    function verifpass(){
+    var pass    =   $('#password').val();
+    var cpass   =   $('#confirm_password').val();
+    if(pass!=cpass){
+        $('#indicator').attr({class:'red'});
+        $('#regbtn').attr({disabled:true});
+    }
+    else{
+        $('#indicator').attr({class:'green'});
+        $('#regbtn').attr({disabled:false});
+    }
+}
+  </script>
+
+
+<%- include('footer') -%>
